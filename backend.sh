@@ -19,7 +19,7 @@ cd /app
 npm install
 echo " Expense Backend Service"
 echo -e "\e[32mbackend srvice\e[0m"
-cp vim /etc/systemd/system/backend.service
+cp backend.service /etc/systemd/system/backend.service
 echo "Load the service."
 echo -e "\e[34mload the service\e[0m"
 systemctl daemon-reload
