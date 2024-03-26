@@ -1,4 +1,4 @@
-Print_Task_Heading "Install nginx"
+Print_Task_Heading "Install Nginx"
 dnf install nginx -y
 echo $?
 Print_Task_Heading "system start nginx"
