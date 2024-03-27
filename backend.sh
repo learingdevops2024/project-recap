@@ -7,7 +7,7 @@ echo $?
 
 
 echo "Add directory"
-echo -e "\e[32mAdd deirectory\e[0m"
+echo -e "\e[32mAdd directory\e[0m"
 useradd expense
 cp backend.service /etc/systemd/system/backend.service file
 rm -rf /app
@@ -32,9 +32,13 @@ echo $?
 echo "Load the service."
 echo -e "\e[34mload the service\e[0m"
 systemctl daemon-reload
+echo $?
+
+echo "system start"
 systemctl enable backend
 systemctl start backend
 echo $?
+
 
 echo "Install mysql"
 echo -e "\e[35minstall mysql\e[0m"
