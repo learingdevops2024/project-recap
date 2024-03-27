@@ -9,7 +9,7 @@ echo $?
 echo "Add directory"
 echo -e "\e[32mAdd deirectory\e[0m"
 useradd expense
-cp backend.service /etc/systemd/system/backend.service
+cp backend.service /etc/systemd/system/backend.service file
 rm -rf /app
 mkdir /app
 echo $?
@@ -28,9 +28,6 @@ cd /app
 npm install
 echo $?
 
-echo " Expense Backend Service"
-echo -e "\e[32mbackend srvice\e[0m"
-echo $?
 
 echo "Load the service."
 echo -e "\e[34mload the service\e[0m"
