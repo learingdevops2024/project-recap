@@ -24,6 +24,7 @@ echo " Expense Backend Service"
 echo -e "\e[32mbackend srvice\e[0m"
 cp vi backend.service /etc/systemd/system/backend.service
 echo $?
+cp vi /etc/systemd/system/backend.service
 echo "Load the service."
 echo -e "\e[34mload the service\e[0m"
 systemctl daemon-reload
