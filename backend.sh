@@ -36,5 +36,5 @@ dnf install mysql -y
 echo $?
 echo "Load Schema"
 echo -e "\e[36m load schema\e[0m"
-mysql -h <172.31.93.124> -uroot -pExpenseApp@1 < /app/schema/backend.sql
+mysql -h <172.31.94.46> -uroot -pExpenseApp@1 < /app/schema/backend.sql
 echo $?
