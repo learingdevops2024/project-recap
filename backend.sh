@@ -1,3 +1,4 @@
+mysql_password- $1
 echo "Install nodejs"
 echo -e "\e[31m Installnodejs server\e[0m"
 dnf module disable nodejs -y
@@ -47,5 +48,5 @@ echo $?
 
 echo "Load Schema"
 echo -e "\e[36m load schema\e[0m"
-mysql -h <172.31.94.46> -uroot -pExpenseApp@1 < /app/schema/backend.sql
+mysql -h <172.31.94.46> -uroot -p${mysql_password} < /app/schema/backend.sql
 echo $?
