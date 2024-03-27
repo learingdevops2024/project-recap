@@ -35,8 +35,8 @@ systemctl daemon-reload
 echo $?
 
 echo "system start"
-systemctl enable backend
-systemctl start backend
+systemctl enable backend.service file
+systemctl start backend.service file
 echo $?
 
 
