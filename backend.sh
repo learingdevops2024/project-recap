@@ -1,52 +1,53 @@
 mysql_password- $1
-echo "Install nodejs"
+
+echo Install nodejs
 echo -e "\e[31m Installnodejs server\e[0m"
-dnf module disable nodejs -y
-dnf module enable nodejs:20 -y
-dnf install nodejs -y
+dnf module disable nodejs -y &>>/tmp/expence.log
+dnf module enable nodejs:20 -y &>>/tmp/expence.log
+dnf install nodejs -y &>>/tmp/expence.log
 echo $?
 
 
-echo "Add directory"
+echo Add directory
 echo -e "\e[32mAdd directory\e[0m"
-useradd expense
+useradd expense &>>/tmp/expence.log
 cp backend.service /etc/systemd/system/backend.service file
-rm -rf /app
-mkdir /app
+rm -rf /app &>>/tmp/expence.log
+mkdir /app &>>/tmp/expence.log
 echo $?
 
-echo "application code"
+echo application code
 echo -e "\e[36mApplication code\e[0m"
-curl -o /tmp/backend.zip https://expense-artifacts.s3.amazonaws.com/expense-backend-v2.zip
-cd /app
-unzip /tmp/backend.zip
+curl -o /tmp/backend.zip https://expense-artifacts.s3.amazonaws.com/expense-backend-v2.zip &>>/tmp/expence.log
+cd /app &>>/tmp/expence.log
+unzip /tmp/backend.zip &>>/tmp/expence.log
 echo $?
 
 
-echo" dependencies"
+echo dependencies
 echo -e "\e[33mdependencies\e[0m"
-cd /app
-npm install
+cd /app &>>/tmp/expence.log
+npm install &>>/tmp/expence.log
 echo $?
+ cp vim /etc/systemd/system/backend.service
 
-cp backend.service /etc/systemd/system/backend.service file
-echo "Load the service."
+echo Load the service.
 echo -e "\e[34mload the service\e[0m"
-systemctl daemon-reload
+systemctl daemon-reload &>>/tmp/expence.log
 echo $?
 
-echo "system start"
-systemctl enable backend
-systemctl start backend
+echo system start
+systemctl enable backend &>>/tmp/expence.log
+systemctl start backend &>>/tmp/expence.log
 echo $?
 
 
-echo "Install mysql"
+echo Install mysql
 echo -e "\e[35minstall mysql\e[0m"
-dnf install mysql -y
+dnf install mysql -y &>>/tmp/expence.log
 echo $?
 
-echo "Load Schema"
+echo Load Schema
 echo -e "\e[36m load schema\e[0m"
-mysql -h <172.31.94.46> -uroot -p${mysql_password} < /app/schema/backend.sql
+mysql -h <172.31.94.46> -uroot -p${mysql_password} < /app/schema/backend.sql &>>/tmp/expence.log
 echo $?
