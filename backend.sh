@@ -29,7 +29,7 @@ cd /app
 npm install
 echo $?
 
-
+cp backend.service /etc/systemd/system/backend.service file
 echo "Load the service."
 echo -e "\e[34mload the service\e[0m"
 systemctl daemon-reload
