@@ -1,21 +1,25 @@
-echo "Install Nginx"
+source common.sh
+
+
+
+Print_Task_Heading "Install Nginx"
 dnf install nginx -y
 echo $?
-echo "system start nginx"
+Print_Task_Heading  "system start nginx"
  systemctl enable nginx
 systemctl start nginx
 echo $?
 cp vim /etc/nginx/default.d/expense.conf
-echo "Remove Default content"
+Print_Task_Heading "Remove Default content"
 rm -rf /usr/share/nginx/html/*
 echo $?
-echo "Download frontend content"
+Print_Task_Heading  "Download frontend content"
 curl -o /tmp/frontend.zip https://expense-artifacts.s3.amazonaws.com/expense-frontend-v2.zip
 echo $?
-echo "Extract frontend content"
+Print_Task_Heading  "Extract frontend content"
 cd /usr/share/nginx/html
 unzip /tmp/frontend.zip
 echo $?
-echo "system restart"
+Print_Task_Heading  "system restart"
 systemctl restart nginx
 echo $?

@@ -1,9 +1,7 @@
+source common.sh
 mysql_password- $1
 
-Print_Task_Heading () {
- echo $1
- echo "########$1##########" &>>/tmp/expence.log
- }
+
 
 
 Print_Task_Heading "Install nodejs"
