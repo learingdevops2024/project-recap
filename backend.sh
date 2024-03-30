@@ -6,7 +6,7 @@ mysql_password- $1
 
 Print_Task_Heading "Install nodejs"
 echo -e "\e[31m Installnodejs server\e[0m"
-dnf module disable nodejs -y &>>/tmp/expence.log
+dnf module disable nodejs -y &>>/tmp/expence.logsudo
 dnf module enable nodejs:20 -y &>>/tmp/expence.log
 dnf install nodejs -y &>>/tmp/expence.log
 echo $?
