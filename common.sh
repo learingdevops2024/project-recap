@@ -10,3 +10,6 @@ check_status () {
       exit2
       fi
 }
+
+&>>/tmp/expence.log
+$LOG =/tmp/expence.log
