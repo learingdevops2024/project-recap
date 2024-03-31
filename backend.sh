@@ -1,4 +1,5 @@
 source common.sh
+
 mysql_password= $1
 
 # if password not provided then we will exit
@@ -55,5 +56,5 @@ check_status $?
 
 Print_Task_Heading "Load Schema"
 echo -e "\e[36m load schema\e[0m"
-mysql -h <172.31.94.46> -uroot -p${mysql_password} < /app/schema/backend.sql &>>/tmp/expence.log
+mysql -h 172.31.88.222 -uroot -p${mysql_password} < /app/schema/backend.sql &>>/tmp/expence.log
 check_status $?
