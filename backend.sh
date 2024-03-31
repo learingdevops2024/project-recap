@@ -17,6 +17,11 @@ check_status $?
 
 
 Print_Task_Heading "Add directory"
+id expence &>>$LOG
+if [ $? -ne 0 ]; then
+  useradd expence &>>$LOG
+  fi
+  check_status $?
 useradd expense  &>>$LOG
 cp backend.service /etc/systemd/system/backend.service file &>>$LOG
 rm -rf /app  &>>$LOG
