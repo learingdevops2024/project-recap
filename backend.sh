@@ -1,6 +1,12 @@
 source common.sh
 mysql_password- $1
 
+# if password not provided then we will exit
+
+if [-z "${mysql_password}" ];then
+  echo Input password missing
+  exit 1
+  fi
 
 Print_Task_Heading "Install nodejs"
 echo -e "\e[31m Installnodejs server\e[0m"
