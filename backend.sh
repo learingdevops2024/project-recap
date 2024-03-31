@@ -27,10 +27,10 @@ fi
   check_status $?
 
 Print_Task_Heading "copy backend.service file"
-cp backend.service /etc/systemd/system/backend.service file &>>$LOG
+cp backend.service /etc/systemd/system/backend.service &>>$LOG
 check_status $?
 
-App_preReq
+App_PreReq
 
 Print_Task_Heading "dependencies"
 cd /app &>>$LOG

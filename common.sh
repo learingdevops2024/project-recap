@@ -14,7 +14,7 @@ else
 fi
 }
 
-App_preReq() {
+App_PreReq() {
  Print_Task_Heading "cleanup the old content"
  rm -rf ${app_dir} &>>$LOG
  check_status $?
