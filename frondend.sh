@@ -3,7 +3,7 @@ source common.sh
 
 Print_Task_Heading "Install Nginx"
 dnf install nginx -y &>>$LOG
-echo $?
+check_status $?
 
 cp vim /etc/nginx/default.d/expense.conf  &>>$LOG
 Print_Task_Heading "Remove Default content"
