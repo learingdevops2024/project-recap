@@ -1,9 +1,9 @@
 source common.sh
-mysql_password- $1
+mysql_password - $1
 
 # if password not provided then we will exit
 
-if [-z "${mysql_password}" ];then
+if [ -z "${mysql_password}" ];then
   echo Input password missing
   exit 1
   fi
