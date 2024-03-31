@@ -1,13 +1,13 @@
 source common.sh
 
 mysql_password=$1
-app_dir=/usr/share/nginx/html
-component=frontend
+app_dir=/app
+component=backend
 
 
 # if password not provided then we will exit.
 
-if [ -z "${mysql_password}" ];then
+if [ -z "${mysql_password}" ]; then
   echo Input password missing
   exit 1
   fi
@@ -23,7 +23,7 @@ Print_Task_Heading "Add directory"
 id expence &>>$LOG
 if [ $? -ne 0 ]; then
   useradd expence &>>$LOG
-  fi
+fi
   check_status $?
 
 Print_Task_Heading "copy backend.service file"

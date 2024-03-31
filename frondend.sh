@@ -1,5 +1,6 @@
 source common.sh
-app_dir=/usr/share/nginx/html
+
+app_dir=/app
 component=frontend
 
 
