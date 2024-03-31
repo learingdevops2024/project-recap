@@ -8,8 +8,9 @@ Print_Task_Heading "Install Nginx"
 dnf install nginx -y &>>$LOG
 check_status $?
 
+
+Print_Task_Heading "copy expence nginx configuration"
 cp expence.conf /etc/nginx/default.d/expense.conf  &>>$LOG
-Print_Task_Heading "remove Default content"
 check_status $?
 
 App_preReq
