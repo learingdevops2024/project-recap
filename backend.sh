@@ -1,6 +1,9 @@
 source common.sh
 
 mysql_password=$1
+app_dir=/usr/share/nginx/html
+component=frontend
+
 
 # if password not provided then we will exit.
 
@@ -22,24 +25,18 @@ if [ $? -ne 0 ]; then
   useradd expence &>>$LOG
   fi
   check_status $?
-useradd expense  &>>$LOG
+
+Print_Task_Heading "copy backend.service file"
 cp backend.service /etc/systemd/system/backend.service file &>>$LOG
-rm -rf /app  &>>$LOG
-mkdir /app  &>>$LOG
 check_status $?
 
-Print_Task_Heading "application code"
-curl -o /tmp/backend.zip https://expense-artifacts.s3.amazonaws.com/expense-backend-v2.zip &>>$LOG
-cd /app  &>>$LOG
-unzip /tmp/backend.zip &>>$LOG
-check_status $?
-
+App_preReq
 
 Print_Task_Heading "dependencies"
 cd /app &>>$LOG
 npm install &>>$LOG
 check_status $?
- cp vim /etc/systemd/system/backend.service
+
 
 Print_Task_Heading "Load the service"
 systemctl daemon-reload &>>$LOG
