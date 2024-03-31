@@ -52,5 +52,5 @@ dnf install mysql -y &>>$LOG
 check_status $?
 
 Print_Task_Heading "Load Schema"
-mysql -h 172.31.88.222 -uroot -p${mysql_password} < /app/schema/backend.sql &>>/tmp/expence.log
+mysql -h mysql-dev.babysanthoshi.com -uroot -p${mysql_password} < /app/schema/backend.sql &>>/tmp/expence.log
 check_status $?
