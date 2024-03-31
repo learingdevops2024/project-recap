@@ -32,7 +32,7 @@ check_status $?
 
 App_PreReq
 
-Print_Task_Heading "dependencies"
+Print_Task_Heading " download nodejs dependencies"
 cd /app &>>$LOG
 npm install &>>$LOG
 check_status $?
@@ -40,9 +40,6 @@ check_status $?
 
 Print_Task_Heading "Load the service"
 systemctl daemon-reload &>>$LOG
-check_status $?
-
-Print_Task_Heading "system start"
 systemctl enable backend &>>$LOG
 systemctl start backend &>>$LOG
 check_status $?
