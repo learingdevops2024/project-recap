@@ -1,14 +1,14 @@
-echo "Install mysql server"
-echo -e "\e[31m Installmysql server\e[0m"
-dnf install mysql-server -y
-echo $?
-echo "system start mysqld"
-echo -e "\e[31m start mysqld\e[0m"
-systemctl enable mysqld
-systemctl start mysqld
-echo $?
-echo "set password"
-echo -e "\e[31m set password\e[0m"
+source common.sh
 
-mysql_secure_installation --set-root-pass ExpenseApp@1
-echo $?
+Print_Task_Heading "Install mysql server"
+dnf install mysql-server -y &>>$LOG
+check_status $?
+
+Print_Task_Heading "system start mysql"
+systemctl enable mysqld &>>$LOG
+systemctl start mysqld &>>$LOG
+check_status $?
+
+ Print_Task_Heading "set password"
+mysql_secure_installation --set-root-pass ExpenseApp@1 &>>$LOG
+check_status $?
