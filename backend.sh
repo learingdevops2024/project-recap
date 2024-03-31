@@ -20,9 +20,9 @@ check_status $?
 
 
 Print_Task_Heading "Add directory"
-id expence &>>$LOG
+id expense &>>$LOG
 if [ $? -ne 0 ]; then
-  useradd expence &>>$LOG
+  useradd expense &>>$LOG
 fi
   check_status $?
 
